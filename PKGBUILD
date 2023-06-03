@@ -1,6 +1,6 @@
 # Maintainer: VHSgunzo <vhsgunzo.github.io>
 pkgname='GE-Proton'
-pkgver='8.2'
+pkgver='8.3'
 pkgrel='1'
 pkgsrcname="${pkgname}${pkgver/./-}"
 pkgdesc='Lutris Wine GE-Proton for Runimage container'
@@ -16,5 +16,17 @@ package() {
     install_dir="$pkgdir/usr/share/steam/compatibilitytools.d/$pkgsrcname"
     install -dm755 "$install_dir"
     cp -ar --no-preserve=ownership "$srcdir/$pkgsrcname"/* "$install_dir/"
-    ln -sf "$pkgdir/usr/bin/cabextract" "$install_dir/files/bin/cabextract"
+    ln -sf "/usr/bin/cabextract" "$install_dir/files/bin/cabextract"
+    for lib in d3d9-nine.dll.so latencyflex_layer.so ninewinecfg.exe.so wineasio.dll.so
+        do ln -sf "/usr/lib/wine/x86_64-unix/$lib" "$install_dir/files/lib64/wine/x86_64-unix/$lib"
+    done
+    for lib in d3d9-nine.dll latencyflex_layer.dll latencyflex_layer.dll.a latencyflex_wine.dll latencyflex_wine.dll.a ninewinecfg.exe wineasio.dll
+        do ln -sf "/usr/lib/wine/x86_64-windows/$lib" "$install_dir/files/lib64/wine/x86_64-windows/$lib"
+    done
+    for lib in d3d9-nine.dll.so ninewinecfg.exe.so wineasio.dll.so
+        do ln -sf "/usr/lib32/wine/i386-unix/$lib" "$install_dir/files/lib/wine/i386-unix/$lib"
+    done
+    for lib in d3d9-nine.dll ninewinecfg.exe wineasio.dll
+        do ln -sf "/usr/lib32/wine/i386-windows/$lib" "$install_dir/files/lib/wine/i386-windows/$lib"
+    done
 }
