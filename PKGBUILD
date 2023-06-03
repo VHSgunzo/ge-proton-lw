@@ -1,6 +1,6 @@
 # Maintainer: VHSgunzo <vhsgunzo.github.io>
 pkgname='GE-Proton'
-pkgver='8.3'
+pkgver='7.55'
 pkgrel='1'
 pkgsrcname="${pkgname}${pkgver/./-}"
 pkgdesc='Lutris Wine GE-Proton for Runimage container'
