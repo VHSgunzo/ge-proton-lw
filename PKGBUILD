@@ -1,9 +1,9 @@
 # Maintainer: VHSgunzo <vhsgunzo.github.io>
 pkgname='GE-Proton'
-pkgver='8.9'
+pkgver='8.11'
 pkgrel='1'
 pkgsrcname="${pkgname}${pkgver/./-}"
-pkgdesc='Lutris Wine GE-Proton for Runimage container'
+pkgdesc='GE-Proton for Runimage container'
 arch=('x86_64')
 url='https://github.com/GloriousEggroll/proton-ge-custom'
 license=('MIT')
