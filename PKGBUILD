@@ -17,6 +17,8 @@ package() {
     install -dm755 "$install_dir"
     cp -ar --no-preserve=ownership "$srcdir/$pkgsrcname"/* "$install_dir/"
     ln -sf "/usr/bin/cabextract" "$install_dir/files/bin/cabextract"
+    sed -i "s|GE-Proton.*|$pkgsrcname|gi" "$install_dir/version"
+    ln -sfr "$install_dir/version" "$install_dir/files/version"
     for lib in d3d9-nine.dll.so latencyflex_layer.so ninewinecfg.exe.so
         do ln -sf "/usr/lib/wine/x86_64-unix/$lib" "$install_dir/files/lib64/wine/x86_64-unix/$lib"
     done
