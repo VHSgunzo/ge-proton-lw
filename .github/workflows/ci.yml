@@ -21,7 +21,9 @@ jobs:
       - name: Build archlinux package
         uses: countstarlight/arch-makepkg-action@master
         with:
-          scripts: "makepkg -fsCc --noconfirm"
+          scripts: |
+            sudo mv -f makepkg-x86_64.conf /etc/makepkg.conf ;
+            makepkg -fsCc --noconfirm ;
 
       - name: Release
         uses: softprops/action-gh-release@v1
