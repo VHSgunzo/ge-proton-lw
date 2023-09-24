@@ -1,14 +1,14 @@
 # Maintainer: VHSgunzo <vhsgunzo.github.io>
 pkgname='GE-Proton'
-pkgver='8.15'
+pkgver='8.16'
 pkgrel='1'
 pkgsrcname="${pkgname}${pkgver/./-}"
 pkgdesc='GE-Proton for Runimage container'
 arch=('x86_64')
 url='https://github.com/GloriousEggroll/proton-ge-custom'
 license=('MIT')
-provides=("$pkgname")
-conflicts=("$pkgname")
+provides=("$pkgname" 'wine-mono' 'wine-gecko')
+conflicts=("${provides[@]}")
 source=("$pkgsrcname.tar.gz::https://github.com/GloriousEggroll/proton-ge-custom/releases/download/$pkgsrcname/$pkgsrcname.tar.gz")
 sha256sums=('SKIP')
 
@@ -19,6 +19,9 @@ package() {
     ln -sf "/usr/bin/cabextract" "$install_dir/files/bin/cabextract"
     sed -i "s|GE-Proton.*|$pkgsrcname|gi" "$install_dir/version"
     ln -sfr "$install_dir/version" "$install_dir/files/version"
+    mkdir -p "$pkgdir/usr/share/wine"
+    ln -sfr "$install_dir/files/share/wine/mono" "$pkgdir/usr/share/wine/mono"
+    ln -sfr "$install_dir/files/share/wine/gecko" "$pkgdir/usr/share/wine/gecko"
     for lib in d3d9-nine.dll.so latencyflex_layer.so ninewinecfg.exe.so
         do ln -sf "/usr/lib/wine/x86_64-unix/$lib" "$install_dir/files/lib64/wine/x86_64-unix/$lib"
     done
