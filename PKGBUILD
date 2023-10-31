@@ -1,6 +1,6 @@
 # Maintainer: VHSgunzo <vhsgunzo.github.io>
 pkgname='GE-Proton'
-pkgver='8.21'
+pkgver='8.22'
 pkgrel='1'
 pkgsrcname="${pkgname}${pkgver/./-}"
 pkgdesc='GE-Proton for Runimage container'
