@@ -1,2 +1,2 @@
 # ge-proton-lw
-GE-Proton for Runimage container
+GE-Proton for [RunImage](https://github.com/VHSgunzo/runimage) container
