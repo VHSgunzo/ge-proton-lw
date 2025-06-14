@@ -24,10 +24,10 @@ package() {
 #     ln -sfr "$install_dir/files/share/wine/mono" "$pkgdir/usr/share/wine/mono"
 #     ln -sfr "$install_dir/files/share/wine/gecko" "$pkgdir/usr/share/wine/gecko"
     for lib in d3d9-nine.dll.so latencyflex_layer.so ninewinecfg.exe.so
-        do ln -sf "/usr/lib/wine/x86_64-unix/$lib" "$install_dir/files/lib64/wine/x86_64-unix/$lib"
+        do ln -sf "/usr/lib/wine/x86_64-unix/$lib" "$install_dir/files/lib/wine/x86_64-unix/$lib"
     done
     for lib in d3d9-nine.dll latencyflex_layer.dll latencyflex_layer.dll.a latencyflex_wine.dll latencyflex_wine.dll.a ninewinecfg.exe
-        do ln -sf "/usr/lib/wine/x86_64-windows/$lib" "$install_dir/files/lib64/wine/x86_64-windows/$lib"
+        do ln -sf "/usr/lib/wine/x86_64-windows/$lib" "$install_dir/files/lib/wine/x86_64-windows/$lib"
     done
     for lib in d3d9-nine.dll.so ninewinecfg.exe.so
         do ln -sf "/usr/lib32/wine/i386-unix/$lib" "$install_dir/files/lib/wine/i386-unix/$lib"
